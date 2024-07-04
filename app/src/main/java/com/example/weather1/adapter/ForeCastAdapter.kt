@@ -47,8 +47,8 @@ class ForeCastAdapter : RecyclerView.Adapter<ForeCastHolder>() {
 
        // holder.humiditiy.text = forecastObject.main!!.humidity.toString()
        // holder.windspeed.text = forecastObject.wind?.speed.toString()
-        holder.maxtemp.text = "$maxtemperatureFormatted °C"
-        holder.mintemp.text = "$mintemperatureFormatted °C"
+        holder.maxtemp.text = "$maxtemperatureFormatted °"
+        holder.mintemp.text = "$mintemperatureFormatted °"
         val temperatureFahrenheit = forecastObject.main?.temp
         val temperatureCelsius = (temperatureFahrenheit?.minus(273.15))
         val temperatureFormatted = String.format("%.2f", temperatureCelsius)

@@ -51,24 +51,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // Initialize ViewModel
         viM = ViewModelProvider(this).get(WeatherVm::class.java)
-
+        // Initialize adapters and RecyclerViews
         adapterForeCastAdapter = ForeCastAdapter()
         adapterWeatherToday = WeatherToday()
         mainforecastadapter = findViewById<RecyclerView>(R.id.mainforecastadapter)
         forecastRecyclerView = findViewById<RecyclerView>(R.id.forecastRecyclerView)
-
+        // Initialize binding for data binding
         binding.lifecycleOwner = this
         binding.vm = viM
-        // Show the ProgressBar and hide the RecyclerView while loading data
-        showLoadingIndicator(true)
-
-        // Use a Handler to introduce a delay
-        Handler(Looper.getMainLooper()).postDelayed({
+        // Show loading indicator initially
+        //binding.progressBar.visibility = View.VISIBLE
+        //showLoadingIndicator(true)
+        // Handler to delay hiding
+        /*Handler(Looper.getMainLooper()).postDelayed({
             // This block will be executed after 3 seconds
             // Fetch data here if needed, then update UI accordingly
             showLoadingIndicator(false)
-        }, 2000) // 3000 milliseconds delay for 3 seconds
+        }, 3000) // 3000 milliseconds delay for 3 seconds*/
 
         //lati = intent.getStringExtra("latitude").toString() // Default value as needed
         //longi = intent.getStringExtra("longitude").toString() // Default value as needed
@@ -86,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPrefs = SharedPrefs.getInstance(this@MainActivity)
         // so that if we are new city
-        sharedPrefs.clearCityValue()
+        //sharedPrefs.clearCityValue()
         // observing live data of today weather and setting adapter
         viM.todayWeatherLiveData.observe(this, Observer {
             val setNewlist = it as List<WeatherList>
@@ -99,8 +100,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ForecastActivity::class.java))
         }
 
-        val searchEditText =
-            binding.searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        val searchEditText = binding.searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
         searchEditText.setTextColor(Color.BLACK)
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -250,11 +250,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoadingIndicator(show: Boolean) {
-        //binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
-        //binding.mainforecastadapter.visibility = if (show) View.GONE else View.VISIBLE
-        //binding.forecastRecyclerView.visibility = if (show) View.GONE else View.VISIBLE
-        //binding.searchviewlayout.visibility = if (show) View.GONE else View.VISIBLE
-        //binding.citydaydatetemplayout.visibility = if (show) View.GONE else View.VISIBLE
+       // binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
+        binding.mainforecastadapter.visibility = if (show) View.GONE else View.VISIBLE
+        binding.forecastRecyclerView.visibility = if (show) View.GONE else View.VISIBLE
+        binding.searchviewlayout.visibility = if (show) View.GONE else View.VISIBLE
+        binding.citydaydatetemplayout.visibility = if (show) View.GONE else View.VISIBLE
         binding.scrollViewBg.visibility = if (show) View.GONE else View.VISIBLE
         // Hide or show other UI elements as needed
     }

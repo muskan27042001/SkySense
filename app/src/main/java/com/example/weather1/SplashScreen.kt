@@ -94,7 +94,6 @@ class SplashScreen : AppCompatActivity() {
             // Log latitude and longitude here
             val latitude = location.latitude
             val longitude = location.longitude
-            2
            //proceedToMainActivity(latitude.toString(), longitude.toString())
 
             val myprefs = SharedPrefs(this)

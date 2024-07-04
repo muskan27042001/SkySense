@@ -46,7 +46,7 @@ class ForecastActivity : AppCompatActivity() {
         val sharedPrefs = SharedPrefs.getInstance(this)
         val city = sharedPrefs.getValueOrNull("city")
         //val city="Ambāla"
-        Log.d("Prefs city", city.toString())
+        Log.d("Prefsssssssssss city", city.toString())
         if (city!=null){
             viM.getForecastUpcoming(city)
 

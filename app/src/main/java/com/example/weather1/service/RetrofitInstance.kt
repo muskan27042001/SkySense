@@ -13,9 +13,12 @@ class RetrofitInstance {
             // to log responses of retrofit
             val logging = HttpLoggingInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+            // Creating OkHTTP Client
             val client = OkHttpClient.Builder().addInterceptor(logging).build()
+            // Retrofit Builder
             Retrofit.Builder().baseUrl(Utils.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create()).client(client).build()
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client).build()
         }
         // we will use this to make api calls
         val api by lazy {

@@ -17,17 +17,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-
+// The class WeatherVm extends ViewModel, which is part of Android Architecture Components and is
+// used to store and manage UI-related data in a lifecycle-conscious way.
 @RequiresApi(Build.VERSION_CODES.O)
 class WeatherVm : ViewModel() {
 
     val todayWeatherLiveData = MutableLiveData<List<WeatherList>>()
     val forecastWeatherLiveData = MutableLiveData<List<WeatherList>>()
-
     val closetorexactlysameweatherdata = MutableLiveData<WeatherList?>()
     val cityName = MutableLiveData<String?>()
 
-    fun   getWeather(city: String? = null, lati: String?=null, longi:String?=null) = viewModelScope.launch(Dispatchers.IO) {
+    fun getWeather(city: String? = null, lati: String?=null, longi:String?=null) = viewModelScope.launch(Dispatchers.IO) {
         val todayWeatherList = mutableListOf<WeatherList>()
         val currentDateTime = LocalDateTime.now()
         val currentDateO = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
@@ -49,13 +49,13 @@ class WeatherVm : ViewModel() {
             Log.d("Response Successful",response.body().toString())
             cityName.postValue(response.body()?.city!!.name)
             val currentDate = currentDateO
-
+            // If it is today's weather then add it in todayWeatherList
             weatherList?.forEach { weather ->
                 if (weather.dtTxt!!.split("\\s".toRegex()).contains(currentDate)) {
                     todayWeatherList.add(weather)
                 }
             }
-
+            // Finding closest weather
             val closestWeather = findClosestWeather(todayWeatherList)
             closetorexactlysameweatherdata.postValue(closestWeather)
             todayWeatherLiveData.postValue(todayWeatherList)

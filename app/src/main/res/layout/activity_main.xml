@@ -12,16 +12,13 @@
     <ScrollView
         android:id="@+id/scrollViewBg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="10dp"
-        android:background="@drawable/night2">
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/night2"
         tools:context=".MainActivity">
-
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="200dp"
@@ -32,6 +29,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
     <LinearLayout
         android:id="@+id/searchviewlayout"
         android:layout_width="match_parent"
@@ -247,7 +245,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="#30FFFFFF"
@@ -267,7 +265,7 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/rain" />
+                            android:src="@drawable/baseline_thermostat_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -276,7 +274,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Feels like"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/feelsliketext"
@@ -285,6 +283,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
                             android:text="10%"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp" />
 
@@ -292,7 +291,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_horizontal"
@@ -322,7 +321,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Wind"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/windtext"
@@ -331,6 +330,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
                             android:text="10%"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp" />
 
@@ -339,7 +339,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_horizontal"
@@ -369,7 +369,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Humidity"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/humiditytext"
@@ -378,6 +378,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
                             android:text="10%"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp" />
 
@@ -392,10 +393,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="#30FFFFFF"
@@ -415,7 +417,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/rain" />
+                            android:src="@drawable/baseline_wb_sunny_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -424,7 +426,7 @@
                             android:layout_marginTop="5dp"
                             android:text="UV"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/uvtext"
@@ -433,6 +435,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
                             android:text="10%"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp" />
 
@@ -441,7 +444,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_horizontal"
@@ -462,7 +465,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/rain" />
+                            android:src="@drawable/baseline_visibility_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -471,7 +474,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Visibility"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/visibilitytext"
@@ -480,6 +483,7 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="5dp"
                             android:text="10%"
+                            android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15dp" />
 
@@ -488,7 +492,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="90dp"
+                    android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="center_horizontal"
@@ -509,7 +513,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/rain" />
+                            android:src="@drawable/baseline_compress_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -518,7 +522,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Air Pressure"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="12dp" />
 
                         <TextView
                             android:id="@+id/aptxt"
@@ -528,7 +532,8 @@
                             android:layout_marginTop="5dp"
                             android:text="10%"
                             android:textColor="@color/white"
-                            android:textSize="15dp" />
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
